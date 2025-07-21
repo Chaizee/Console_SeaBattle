@@ -4,12 +4,14 @@ namespace sea_battle
 {
     class Cell
     {
+        public char Status;
         public bool hasShip;
         public bool wasFired;
         public bool canPlaceShip;
 
-        public Cell(bool hasship, bool wasfired, bool canplaceship)
+        public Cell(char status, bool hasship, bool wasfired, bool canplaceship)
         {
+            Status = status;
             hasShip = hasship;
             wasFired = wasfired;
             canPlaceShip = canplaceship;
@@ -26,10 +28,10 @@ namespace sea_battle
 
         public static void PrintField(List<Cell> field)
         {
-            Console.WriteLine("  0 1 2 3 4 5 6 7 8 9");
-            for (int i = 0; i <= 9; i++)
+            Console.WriteLine("  1 2 3 4 5 6 7 8 9 10");
+            for (char i = 'A'; i <= 'J'; i++)
             {
-                Console.WriteLine($"{i} * * * * * * * * * *");
+                Console.WriteLine($"{i} * # * * * & * * \u00D7 *");
             }
         }
 
@@ -72,6 +74,12 @@ namespace sea_battle
                             Console.WriteLine("\nИгрок 1, расставьте корабли:");
                             
                             return;
+
+
+
+
+
+                            
                         case 2:
                             return;
                         case 3:
@@ -84,7 +92,7 @@ namespace sea_battle
 
                     break;
                 case 2:
-                    Console.WriteLine("Выбрано действие 2");
+                    Console.WriteLine("До скорой встречи!");
                     break;
                 default:
                     Console.WriteLine("Неверный выбор, попробуйте снова!");
